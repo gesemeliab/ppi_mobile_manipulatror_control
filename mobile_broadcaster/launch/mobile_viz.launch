@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <launch>
+    <!-- Axes -->
+    <param name="scale_linear" value="2" type="double"/>
+    <param name="scale_angular" value="2" type="double"/>
+
+    <node pkg="mobile_broadcaster" type="broadcaster"
+          args="/base_link" name="mobile_tf_broadcaster" />
+
+  </launch>

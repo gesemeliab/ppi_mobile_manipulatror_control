@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Axes -->
+  <param name="scale_linear" value="2" type="double"/>
+  <param name="scale_angular" value="2" type="double"/>
+
+  <arg name="laser_enabled" default="$(optenv HUSKY_LMS1XX_ENABLED false)"/>
+  <arg name="kinect_enabled" default="false"/>
+
+  <!-- Standalone launcher to visualize the robot model. -->
+  <include file="$(find husky_description)/launch/description.launch">
+    <arg name="laser_enabled" value="$(arg laser_enabled)"/>
+    <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
+  </include>
+
+  <node pkg="mobile_broadcaster" type="broadcaster"
+        args="/base_link" name="mobile_tf_broadcaster" />
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find scara_ppi_publisher)/launch/husky_ppi.rviz" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+</launch>
+
+

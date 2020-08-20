@@ -1,0 +1,49 @@
+dparams:
+
+    n_motors: 3
+    
+    #control_params:
+    kp: 1.95
+    kpi: 0.095
+    dt: 10.0 
+
+    motor_params:
+      J_1: 0.1
+      Ki_1: 0.01
+      Km_1: 0.01
+      b_1: 0.1
+      L_1: 0.5
+      R_1: 1
+    
+    init_mobile_pose:
+      x_r: 0.0
+      y_r: 0.0
+      theta: 3.1416
+      
+    #States Machine Params  
+    pick_coordinate:
+      x_s: 5.2
+      y_s: 7.0
+      z_s: 15.0
+      
+    place_coordinate:
+      x_s: 12.2
+      y_s: 0.0
+      z_s: 5.0
+     
+    wp1:
+      x_m: 3.0
+      y_m: 10.0
+      
+    wp2:
+      x_m: 10.0
+      y_m: -9.0
+      
+    wp3:
+      x_m: 13.0
+      y_m: 10.0
+      
+    wp4:
+      x_m: 0.0
+      y_m: 0.0
+

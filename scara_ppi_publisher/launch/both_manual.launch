@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+        <include file="$(find mobile_broadcaster)/launch/husky_ppi.launch" />
+	<!--<include file="$(find mobile_pi_publisher)/launch/mobile_controller.launch" />-->
+
+	<rosparam command="load" file="$(find scara_ppi_publisher)/config/params.yaml" />
+	
+	<node name="goal_node"
+		  pkg="scara_ppi_publisher"
+		  type="goal_publisher.py"
+		  args=""
+		  output="screen"/>
+	<node name="mobile_node"
+		  pkg="scara_ppi_publisher"
+		  type="mobile.py"
+		  args=""
+		  output="screen"/>
+	<node name="ppi_node"
+		  pkg="scara_ppi_publisher"
+		  type="control.py"
+		  args=""
+		  output="screen"/>
+	<node name="system_node"
+		  pkg="scara_ppi_publisher"
+		  type="system.py"
+		  args=""
+		  output="screen"/>
+
+
+</launch>
